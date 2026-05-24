@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عيد أضحى مبارك</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Tajawal',sans-serif;background:#fce8e8;min-height:100vh;overflow-x:hidden}
+
+  /* PAGE 1 */
+  #page1{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:20px;background:linear-gradient(135deg,#fce8e8 0%,#fdf0f0 50%,#fce8e8 100%);position:relative}
+  .bunting{position:absolute;top:0;left:0;width:100%;height:60px;overflow:hidden}
+  .lantern{position:absolute;font-size:40px;animation:swing 3s ease-in-out infinite}
+  .lantern:nth-child(1){left:20px;top:10px;animation-delay:0s}
+  .lantern:nth-child(2){left:70px;top:30px;animation-delay:.5s;font-size:28px}
+  @keyframes swing{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(8deg)}}
+
+  .p1-card{background:rgba(255,255,255,.85);border-radius:30px;padding:40px 50px;max-width:500px;width:100%;text-align:center;box-shadow:0 8px 40px rgba(220,80,80,.15);border:2px solid #f5b8b8}
+  .p1-title{font-size:52px;font-weight:900;color:#c0392b;line-height:1.1;text-shadow:3px 3px 0 #f5b8b8;margin-bottom:8px}
+  .p1-subtitle{font-size:20px;color:#e07070;margin-bottom:8px}
+  .p1-sub2{font-size:15px;color:#c0392b;margin-bottom:30px;background:#fce8e8;border-radius:20px;padding:8px 20px;display:inline-block}
+  .p1-sheep{font-size:70px;margin-bottom:16px;display:block;animation:bounce 1.5s ease-in-out infinite}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+  .name-input{width:100%;padding:14px 20px;border-radius:50px;border:2px solid #e07070;font-size:18px;font-family:'Tajawal',sans-serif;text-align:center;outline:none;color:#c0392b;background:#fff8f8;margin-bottom:20px}
+  .name-input::placeholder{color:#e8aaaa}
+  .name-input:focus{border-color:#c0392b;box-shadow:0 0 0 3px rgba(220,80,80,.15)}
+  .go-btn{background:linear-gradient(135deg,#e74c3c,#c0392b);color:#fff;border:none;padding:14px 50px;border-radius:50px;font-size:20px;font-family:'Tajawal',sans-serif;font-weight:700;cursor:pointer;transition:transform .2s,box-shadow .2s}
+  .go-btn:hover{transform:scale(1.05);box-shadow:0 6px 20px rgba(220,80,80,.4)}
+  .stars{position:absolute;pointer-events:none;width:100%;height:100%}
+  .star{position:absolute;color:#e74c3c;font-size:14px;animation:twinkle 2s ease-in-out infinite}
+  @keyframes twinkle{0%,100%{opacity:.3;transform:scale(.8)}50%{opacity:1;transform:scale(1.2)}}
+
+  /* PAGE 2 */
+  #page2{display:none;min-height:100vh;background:url("C:\\Users\\user\\Downloads\\photo.jpeg") center/cover no-repeat;position:relative;overflow:hidden}
+  .balloons{position:fixed;top:0;left:0;width:100%;pointer-events:none;z-index:0}
+  .balloon{position:absolute;font-size:44px;animation:floatUp 8s ease-in-out infinite}
+  .balloon:nth-child(1){left:5%;animation-delay:0s}
+  .balloon:nth-child(2){left:20%;animation-delay:1.5s}
+  .balloon:nth-child(3){left:80%;animation-delay:.8s}
+  .balloon:nth-child(4){left:90%;animation-delay:2.5s}
+  @keyframes floatUp{0%{transform:translateY(100vh) rotate(-5deg);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-200px) rotate(5deg);opacity:0}}
+
+  .p2-content{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:30px 20px;text-align:center}
+  .p2-flags{font-size:30px;margin-bottom:10px;animation:waveflag 2s ease-in-out infinite}
+  @keyframes waveflag{0%,100%{letter-spacing:5px}50%{letter-spacing:15px}}
+
+  .p2-card{background:rgba(255,255,255,.9);border-radius:30px;padding:40px;max-width:600px;width:100%;border:3px solid #f5b8b8;box-shadow:0 10px 50px rgba(220,80,80,.2);animation:popIn .8s cubic-bezier(.34,1.56,.64,1) both}
+  @keyframes popIn{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+
+  .p2-sheep-circle{display:none}
+  @keyframes spinIn{from{transform:rotate(-180deg) scale(0);opacity:0}to{transform:rotate(0) scale(1);opacity:1}}
+  .sheep-big{font-size:80px;animation:sheepBounce 2s ease-in-out infinite 1.5s}
+  @keyframes sheepBounce{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(3deg)}}
+
+  .greeting-main{font-size:48px;font-weight:900;color:#c0392b;text-shadow:3px 3px 0 #f5b8b8;margin-bottom:10px;animation:fadeSlide .8s ease both 1s;opacity:0;animation-fill-mode:forwards}
+  @keyframes fadeSlide{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+  .name-display{font-size:36px;font-weight:900;color:#e74c3c;background:linear-gradient(135deg,#e74c3c,#c0392b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;animation:fadeSlide .8s ease both 1.3s;opacity:0;animation-fill-mode:forwards}
+  .dua-badge{background:#fce8e8;border:2px solid #f5b8b8;border-radius:20px;padding:10px 24px;font-size:17px;color:#c0392b;margin-bottom:10px;display:inline-block;animation:fadeSlide .8s ease both 1.6s;opacity:0;animation-fill-mode:forwards}
+  .dua-sub{font-size:16px;color:#e07070;animation:fadeSlide .8s ease both 1.9s;opacity:0;animation-fill-mode:forwards}
+  .p2-label{background:linear-gradient(135deg,#e74c3c,#c0392b);color:#fff;border-radius:50px;padding:10px 30px;font-size:18px;font-weight:700;margin-top:20px;display:inline-block;animation:fadeSlide .8s ease both 2.2s;opacity:0;animation-fill-mode:forwards}
+  .confetti{position:fixed;top:-20px;pointer-events:none;font-size:20px;z-index:2;animation:fall linear infinite}
+  @keyframes fall{to{transform:translateY(110vh) rotate(720deg)}}
+  .back-btn{margin-top:20px;background:transparent;border:2px solid #e07070;color:#c0392b;padding:10px 30px;border-radius:50px;font-size:15px;font-family:'Tajawal',sans-serif;cursor:pointer;transition:all .2s}
+  .back-btn:hover{background:#fce8e8}
+
+  /* FLAG BUNTING SVG */
+  .bunting-svg{width:100%;position:absolute;top:0;left:0}
+</style>
+</head>
+<body>
+
+<!-- PAGE 1: Input -->
+<div id="page1">
+  <div class="stars" id="starsContainer"></div>
+
+  <!-- Lanterns -->
+  <div style="position:absolute;top:0;left:0;z-index:2;pointer-events:none">
+    <div class="lantern" style="left:15px;top:5px">🪔</div>
+    <div class="lantern" style="left:60px;top:25px;font-size:26px;animation-delay:.4s">🏮</div>
+  </div>
+  <div style="position:absolute;top:0;right:0;z-index:2;pointer-events:none">
+    <div class="lantern" style="right:15px;top:5px">🪔</div>
+    <div class="lantern" style="right:60px;top:25px;font-size:26px;animation-delay:.7s">🏮</div>
+  </div>
+
+  <!-- Bunting SVG -->
+  <svg class="bunting-svg" height="70" viewBox="0 0 800 70" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,10 Q100,50 200,10 Q300,50 400,10 Q500,50 600,10 Q700,50 800,10" fill="none" stroke="#e07070" stroke-width="2"/>
+    <polygon points="80,10 100,50 120,10" fill="#e74c3c" opacity=".8"/>
+    <polygon points="180,10 200,50 220,10" fill="#f5b8b8" opacity=".9"/>
+    <polygon points="280,10 300,50 320,10" fill="#e74c3c" opacity=".8"/>
+    <polygon points="380,10 400,50 420,10" fill="#f5b8b8" opacity=".9"/>
+    <polygon points="480,10 500,50 520,10" fill="#e74c3c" opacity=".8"/>
+    <polygon points="580,10 600,50 620,10" fill="#f5b8b8" opacity=".9"/>
+    <polygon points="680,10 700,50 720,10" fill="#e74c3c" opacity=".8"/>
+  </svg>
+
+  <div class="p1-card" style="margin-top:60px">
+    <span class="p1-sheep">🐑</span>
+    <div class="p1-title">عيد أضحى</div>
+    <div class="p1-title" style="color:#e74c3c">مبارك</div>
+    <div style="height:10px"></div>
+    <div class="p1-sub2">✦ تقبل الله منا ومنكم صالح الأعمال ✦</div>
+    <p style="color:#e07070;font-size:16px;margin-bottom:20px">اكتب اسمك لاستلام تهنئتك الخاصة 🎉</p>
+    <input class="name-input" type="text" id="nameInput" placeholder="اكتب اسمك هنا..." maxlength="30">
+    <br>
+    <button class="go-btn" onclick="showGreeting()">🎊 احتفل معنا</button>
+  </div>
+</div>
+
+<!-- PAGE 2: Greeting -->
+<audio id="takbeerAudio" loop>
+  <source src="C:\Users\user\Downloads\Music\تكبيرات العيد هاشم السقاف.mp3" type="audio/mpeg">
+</audio>
+
+<div id="page2">
+  <!-- Static decorative background matching the Eid image -->
+  <svg style="position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none" viewBox="0 0 900 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <!-- Soft polka dot pattern -->
+    <defs>
+      <pattern id="dots" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+        <circle cx="20" cy="20" r="1.5" fill="#e8a0a8" opacity="0.4"/>
+      </pattern>
+    </defs>
+    <rect width="900" height="520" fill="url(#dots)"/>
+    <!-- Bunting rope -->
+    <path d="M0,30 Q112,70 225,30 Q337,70 450,30 Q562,70 675,30 Q787,70 900,30" fill="none" stroke="#d06070" stroke-width="2"/>
+    <!-- Bunting triangles -->
+    <polygon points="80,30 112,78 144,30" fill="#e74c3c" opacity="0.85"/>
+    <polygon points="193,30 225,78 257,30" fill="#f5b8b8" opacity="0.9"/>
+    <polygon points="305,30 337,78 369,30" fill="#e74c3c" opacity="0.85"/>
+    <polygon points="418,30 450,78 482,30" fill="#f5b8b8" opacity="0.9"/>
+    <polygon points="530,30 562,78 594,30" fill="#e74c3c" opacity="0.85"/>
+    <polygon points="643,30 675,78 707,30" fill="#f5b8b8" opacity="0.9"/>
+    <polygon points="755,30 787,78 819,30" fill="#e74c3c" opacity="0.85"/>
+    <!-- Left lanterns -->
+    <g transform="translate(60,80)">
+      <rect x="-14" y="10" width="28" height="38" rx="14" fill="#c8832a" opacity="0.9"/>
+      <rect x="-9"  y="8"  width="18" height="5"  rx="2" fill="#a06020"/>
+      <rect x="-9"  y="46" width="18" height="5"  rx="2" fill="#a06020"/>
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#a06020" stroke-width="2"/>
+      <line x1="-4" y1="51" x2="-4" y2="60" stroke="#a06020" stroke-width="1.5"/>
+      <line x1="4"  y1="51" x2="4"  y2="60" stroke="#a06020" stroke-width="1.5"/>
+      <ellipse cx="0" cy="29" rx="6" ry="8" fill="#f5c060" opacity="0.5"/>
+    </g>
+    <g transform="translate(100,150)">
+      <rect x="-11" y="8" width="22" height="30" rx="11" fill="#c8832a" opacity="0.85"/>
+      <rect x="-7"  y="6" width="14" height="4"  rx="2" fill="#a06020"/>
+      <rect x="-7"  y="36" width="14" height="4" rx="2" fill="#a06020"/>
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#a06020" stroke-width="1.5"/>
+      <ellipse cx="0" cy="21" rx="5" ry="6" fill="#f5c060" opacity="0.45"/>
+    </g>
+    <!-- Right big balloons -->
+    <ellipse cx="790" cy="110" rx="46" ry="52" fill="#e74c3c" opacity="0.85"/>
+    <ellipse cx="785" cy="95"  rx="14" ry="10" fill="#f5a0a0" opacity="0.4"/>
+    <path d="M790,162 Q793,185 790,200" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+    <ellipse cx="840" cy="200" rx="36" ry="40" fill="#e74c3c" opacity="0.7"/>
+    <ellipse cx="836" cy="188" rx="10" ry="7"  fill="#f5a0a0" opacity="0.35"/>
+    <path d="M840,240 Q843,258 840,270" fill="none" stroke="#c0392b" stroke-width="1.5"/>
+    <!-- Heart on balloon -->
+    <text x="827" y="207" font-size="18" fill="white" opacity="0.9">♥</text>
+    <!-- Bottom right clouds -->
+    <g opacity="0.6">
+      <ellipse cx="820" cy="480" rx="55" ry="28" fill="#f5b8b8"/>
+      <ellipse cx="780" cy="468" rx="35" ry="22" fill="#f5b8b8"/>
+      <ellipse cx="860" cy="470" rx="35" ry="22" fill="#f5b8b8"/>
+    </g>
+    <g opacity="0.5">
+      <ellipse cx="70"  cy="490" rx="45" ry="22" fill="#f5b8b8"/>
+      <ellipse cx="40"  cy="480" rx="28" ry="18" fill="#f5b8b8"/>
+      <ellipse cx="100" cy="482" rx="28" ry="18" fill="#f5b8b8"/>
+    </g>
+    <!-- Scattered stars/hearts -->
+    <text x="170" y="120" font-size="14" fill="#e74c3c" opacity="0.5">✦</text>
+    <text x="700" y="160" font-size="12" fill="#e74c3c" opacity="0.5">✦</text>
+    <text x="300" y="470" font-size="10" fill="#e74c3c" opacity="0.4">♥</text>
+    <text x="600" y="440" font-size="10" fill="#e74c3c" opacity="0.4">♥</text>
+    <text x="140" y="400" font-size="12" fill="#e74c3c" opacity="0.35">✦</text>
+    <text x="750" y="390" font-size="11" fill="#e74c3c" opacity="0.4">✦</text>
+    <text x="420" y="490" font-size="10" fill="#e74c3c" opacity="0.35">♥</text>
+    <text x="500" y="60"  font-size="11" fill="#e74c3c" opacity="0.4">✦</text>
+  </svg>
+
+  <div class="balloons" id="balloons">
+    <div class="balloon">🎈</div>
+    <div class="balloon">🎈</div>
+    <div class="balloon">🎈</div>
+    <div class="balloon">🎈</div>
+  </div>
+  <div id="confettiContainer"></div>
+
+  <div class="p2-content">
+    <div class="p2-flags">🏳️🏳️🏳️🏳️🏳️</div>
+    <div class="p2-card">
+      <div class="p2-sheep-circle">
+        <svg viewBox="0 0 160 160" width="150" height="150" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background circle fill -->
+          <circle cx="80" cy="80" r="80" fill="#fdf0f0"/>
+          <!-- Mosque silhouette bg -->
+          <g opacity="0.12" fill="#c0392b">
+            <rect x="55" y="95" width="50" height="40"/>
+            <rect x="63" y="88" width="34" height="12"/>
+            <ellipse cx="80" cy="88" rx="17" ry="10"/>
+            <rect x="77" y="72" width="6" height="18"/>
+            <ellipse cx="80" cy="72" rx="5" ry="5"/>
+          </g>
+          <!-- Moon -->
+          <path d="M120 40 Q130 50 120 60 Q112 50 120 40Z" fill="#f5c842" opacity="0.7"/>
+
+          <!-- Party hat -->
+          <polygon points="80,18 62,52 98,52" fill="#f5c2c2" stroke="#e07070" stroke-width="1.5"/>
+          <!-- Hat stripes -->
+          <line x1="70" y1="38" x2="75" y2="30" stroke="#e07070" stroke-width="1.5"/>
+          <line x1="78" y1="44" x2="83" y2="33" stroke="#e07070" stroke-width="1.5"/>
+          <line x1="86" y1="40" x2="90" y2="32" stroke="#e07070" stroke-width="1.5"/>
+          <!-- Hat brim -->
+          <ellipse cx="80" cy="52" rx="18" ry="4" fill="#e07070"/>
+          <!-- Hat pompom -->
+          <circle cx="80" cy="18" r="5" fill="#fff" stroke="#e07070" stroke-width="1"/>
+
+          <!-- Fluffy body (cloud bumps) -->
+          <circle cx="80" cy="100" r="28" fill="white" stroke="#ddd" stroke-width="1"/>
+          <circle cx="58" cy="96" r="17" fill="white" stroke="#ddd" stroke-width="1"/>
+          <circle cx="102" cy="96" r="17" fill="white" stroke="#ddd" stroke-width="1"/>
+          <circle cx="64" cy="84" r="14" fill="white" stroke="#ddd" stroke-width="1"/>
+          <circle cx="96" cy="84" r="14" fill="white" stroke="#ddd" stroke-width="1"/>
+          <circle cx="80" cy="80" r="15" fill="white" stroke="#ddd" stroke-width="1"/>
+
+          <!-- Head -->
+          <ellipse cx="80" cy="68" rx="16" ry="14" fill="#f5f0e8"/>
+
+          <!-- Horns -->
+          <path d="M66 60 Q56 48 60 56" fill="none" stroke="#8B6914" stroke-width="3" stroke-linecap="round"/>
+          <path d="M94 60 Q104 48 100 56" fill="none" stroke="#8B6914" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="60" cy="57" r="4" fill="#8B6914"/>
+          <circle cx="100" cy="57" r="4" fill="#8B6914"/>
+
+          <!-- Ears -->
+          <ellipse cx="65" cy="68" rx="6" ry="9" fill="#f5d0a0" transform="rotate(-15,65,68)"/>
+          <ellipse cx="95" cy="68" rx="6" ry="9" fill="#f5d0a0" transform="rotate(15,95,68)"/>
+
+          <!-- Eyes -->
+          <ellipse cx="74" cy="66" rx="4" ry="4.5" fill="#3a2510"/>
+          <ellipse cx="86" cy="66" rx="4" ry="4.5" fill="#3a2510"/>
+          <circle cx="75.5" cy="64.5" r="1.2" fill="white"/>
+          <circle cx="87.5" cy="64.5" r="1.2" fill="white"/>
+
+          <!-- Rosy cheeks -->
+          <ellipse cx="69" cy="71" rx="5" ry="3" fill="#f5a0a0" opacity="0.6"/>
+          <ellipse cx="91" cy="71" rx="5" ry="3" fill="#f5a0a0" opacity="0.6"/>
+
+          <!-- Nose -->
+          <ellipse cx="80" cy="73" rx="4" ry="2.5" fill="#d4a0a0"/>
+          <circle cx="78.5" cy="73" r="1" fill="#8B4040"/>
+          <circle cx="81.5" cy="73" r="1" fill="#8B4040"/>
+
+          <!-- Smile -->
+          <path d="M75 76 Q80 80 85 76" fill="none" stroke="#8B4040" stroke-width="1.5" stroke-linecap="round"/>
+
+          <!-- Left arm / leg holding balloon -->
+          <path d="M58 105 Q42 100 38 90" fill="none" stroke="#c8b89a" stroke-width="5" stroke-linecap="round"/>
+
+          <!-- Legs -->
+          <rect x="68" y="122" width="8" height="18" rx="4" fill="#8B6914"/>
+          <rect x="84" y="122" width="8" height="18" rx="4" fill="#8B6914"/>
+          <rect x="67" y="136" width="10" height="6" rx="3" fill="#5a3e10"/>
+          <rect x="83" y="136" width="10" height="6" rx="3" fill="#5a3e10"/>
+
+          <!-- Smiley face balloon -->
+          <circle cx="35" cy="76" r="16" fill="white" stroke="#ddd" stroke-width="1.5"/>
+          <!-- balloon face -->
+          <circle cx="30" cy="73" r="2" fill="#555"/>
+          <circle cx="40" cy="73" r="2" fill="#555"/>
+          <path d="M29 79 Q35 84 41 79" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- balloon string -->
+          <path d="M35 92 Q38 96 38 100" fill="none" stroke="#aaa" stroke-width="1" stroke-dasharray="2,2"/>
+        </svg>
+      </div>
+      <div class="greeting-main">عيد أضحى مبارك</div>
+      <div class="name-display" id="nameDisplay"></div>
+      <div class="dua-badge">✦ تقبل الله منا ومنكم صالح الأعمال ✦</div>
+      <br>
+      <div class="dua-sub">— كل عام وأنتم بخير —</div>
+      <div class="p2-label">🐑 عيد أضحى سعيد 🐑</div>
+    </div>
+    <button class="back-btn" onclick="goBack()">← العودة</button>
+  </div>
+</div>
+
+<script>
+  // Twinkling stars on page 1
+  const sc = document.getElementById('starsContainer');
+  const starPositions = [[10,15],[25,70],[15,40],[85,20],[90,60],[70,10],[60,80],[40,30],[50,90],[80,50],[35,55],[65,45]];
+  starPositions.forEach(([l,t],i)=>{
+    const s = document.createElement('div');
+    s.className='star';
+    s.style.cssText=`left:${l}%;top:${t}%;animation-delay:${(i*.3)%2}s`;
+    s.textContent='✦';
+    sc.appendChild(s);
+  });
+
+  function showGreeting(){
+    const name = document.getElementById('nameInput').value.trim();
+    if(!name){
+      document.getElementById('nameInput').style.borderColor='#e74c3c';
+      document.getElementById('nameInput').focus();
+      return;
+    }
+    document.getElementById('nameDisplay').textContent = name;
+    document.getElementById('page1').style.display='none';
+    document.getElementById('page2').style.display='block';
+    const audio = document.getElementById('takbeerAudio');
+    audio.play().catch(()=>{});
+    launchConfetti();
+  }
+
+  function goBack(){
+    document.getElementById('page2').style.display='none';
+    document.getElementById('page1').style.display='flex';
+    document.getElementById('confettiContainer').innerHTML='';
+    const audio = document.getElementById('takbeerAudio');
+    audio.pause(); audio.currentTime=0;
+  }
+
+  const emojis=['🐑','🌙','⭐','🎊','🎉','💝','🌸','✨'];
+  function launchConfetti(){
+    const cc = document.getElementById('confettiContainer');
+    cc.innerHTML='';
+    for(let i=0;i<25;i++){
+      const c=document.createElement('div');
+      c.className='confetti';
+      c.style.cssText=`left:${Math.random()*100}%;animation-duration:${3+Math.random()*5}s;animation-delay:${Math.random()*4}s;font-size:${16+Math.random()*20}px`;
+      c.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+      cc.appendChild(c);
+    }
+  }
+
+  function replacePhoto(e){
+    const file = e.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const p2 = document.getElementById('page2');
+      p2.style.backgroundImage = `url(${ev.target.result})`;
+      p2.style.backgroundSize = 'cover';
+      p2.style.backgroundPosition = 'center';
+      p2.style.backgroundRepeat = 'no-repeat';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  document.getElementById('nameInput').addEventListener('keydown',e=>{
+    if(e.key==='Enter') showGreeting();
+  });
+</script>
+</body>
+</html>
